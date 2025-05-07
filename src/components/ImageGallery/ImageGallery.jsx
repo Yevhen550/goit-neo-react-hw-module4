@@ -1,1 +1,18 @@
-import s from './ImageGallery.module.css'
+import s from "./ImageGallery.module.css";
+
+const ImageGallery = () => {
+  return (
+    <div>
+      <ul>
+        {/* Набір елементів списку із зображеннями */}
+        <li>
+          <div>
+            <img src="" alt="" />
+          </div>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default ImageGallery;
