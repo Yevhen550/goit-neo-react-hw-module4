@@ -12,12 +12,12 @@ const handleSubmit = (values, actions) => {
 
 const SearchBar = () => {
   return (
-    <div>
+    <div className={s.formBox}>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
+        <Form className={s.form}>
           <Field
             name="name"
-            className="input"
+            className={s.formInput}
             type="text"
             autoComplete="off"
             autoFocus

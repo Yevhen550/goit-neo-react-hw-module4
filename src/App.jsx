@@ -6,12 +6,15 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
+  // const [images, setImages] = useState([]);
+  // const [loading, setLoading] = useState(false);
+
   return (
     <>
       <Container>
         <SearchBar />
-        <ImageGallery />
-        {/* <Loader /> */}
+        {/* <ImageGallery /> */}
+        {/* {loading && <Loader />} */}
         {/* <LoadMoreBtn /> */}
       </Container>
     </>

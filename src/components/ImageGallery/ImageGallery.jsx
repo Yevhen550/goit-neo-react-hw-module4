@@ -1,16 +1,16 @@
 import s from "./ImageGallery.module.css";
 
-const ImageGallery = () => {
+const ImageGallery = ({ images }) => {
   return (
     <div>
-      <ul>
-        {/* Набір елементів списку із зображеннями */}
-        <li>
+      {/* <ul>
+        {images.map(({})=>(
+        <li key={ }>
           <div>
-            <img src="" alt="" />
+            <img src={} alt={} />
           </div>
-        </li>
-      </ul>
+        </li>))}
+      </ul> */}
     </div>
   );
 };
