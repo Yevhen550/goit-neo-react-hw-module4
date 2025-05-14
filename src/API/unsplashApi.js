@@ -1,6 +1,7 @@
 import axios from "axios";
-const BASE_URL = "https://api.unsplash.com/photos/";
 const API_KEY = "rfCwbckgtQUDD3T8K91eUHDr_Jp80VlSu_SODn54lno";
+
+axios.defaults.baseURL = "https://api.unsplash.com/search/photos";
 
 const fetchPhotoCard = async (query, page = 1) => {
   const params = {
@@ -10,7 +11,7 @@ const fetchPhotoCard = async (query, page = 1) => {
     client_id: API_KEY,
   };
 
-  const { data } = await axios.get(`${BASE_URL}`, { params });
+  const { data } = await axios.get("/", { params });
 
   return data;
 };

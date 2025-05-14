@@ -1,13 +1,15 @@
 import { Field, Form, Formik } from "formik";
 import s from "./SearchBar.module.css";
+import fetchPhotoCard from "../../API/unsplashApi";
 
 const initialValues = {
   name: "",
 };
 
-const handleSubmit = (values, actions) => {
+const handleSubmit = async (values, actions) => {
+  const photos = await fetchPhotoCard(values.name);
+  console.log(photos.results);
   actions.resetForm();
-  console.log(values);
 };
 
 const SearchBar = () => {
