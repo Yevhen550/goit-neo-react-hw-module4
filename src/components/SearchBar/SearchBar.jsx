@@ -6,8 +6,8 @@ const initialValues = {
 };
 
 const handleSubmit = (values, actions) => {
-  console.log(values);
   actions.resetForm();
+  console.log(values);
 };
 
 const SearchBar = () => {
