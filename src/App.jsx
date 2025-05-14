@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import fetchPhotoCard from "./API/unsplashApi";
 import "./App.css";
 import Container from "./components/Container/Container";
@@ -8,15 +8,15 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
-  // const [images, setImages] = useState([]);
-  // const [query, setQuery] = useState("");
+  const [images, setImages] = useState([]);
+  const [query, setQuery] = useState("");
   // const [loading, setLoading] = useState(false);
 
   return (
     <>
       <Container>
-        <SearchBar query="query" />
-        {/* <ImageGallery /> */}
+        <SearchBar query={query} />
+        <ImageGallery images={images} />
         {/* {loading && <Loader />} */}
         {/* <LoadMoreBtn /> */}
       </Container>

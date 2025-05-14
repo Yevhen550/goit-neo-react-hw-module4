@@ -1,10 +1,11 @@
 import s from "./ImageCard.module.css";
 
-export const ImageCard = () => {
+const ImageCard = ({ data }) => {
   return (
     <div>
-      <img src="" alt="" />
+      <img src={data.urls.small} alt="" />
     </div>
   );
 };
-  
+
+export default ImageCard;
