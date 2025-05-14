@@ -13,6 +13,6 @@ const fetchPhotoCard = async (query, page = 1) => {
 
   const { data } = await axios.get("/", { params });
 
-  return data;
+  return data.results;
 };
 export default fetchPhotoCard;

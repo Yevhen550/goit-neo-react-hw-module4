@@ -8,7 +8,7 @@ const initialValues = {
 
 const handleSubmit = async (values, actions) => {
   const photos = await fetchPhotoCard(values.name);
-  console.log(photos.results);
+  console.log(photos);
   actions.resetForm();
 };
 
