@@ -10,7 +10,18 @@ import SearchBar from "./components/SearchBar/SearchBar";
 function App() {
   const [images, setImages] = useState([]);
   const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
   // const [loading, setLoading] = useState(false);
+
+  console.log(images);
+
+  useEffect(() => {
+    async () => {
+      const fetching = await fetchPhotoCard(query, page);
+      fetching();
+    },
+      [query, page];
+  });
 
   return (
     <>
