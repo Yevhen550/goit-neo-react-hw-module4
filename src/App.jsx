@@ -1,6 +1,6 @@
+import "./App.css";
 import { useEffect, useState } from "react";
 import fetchPhotoCard from "./API/unsplashApi";
-import "./App.css";
 import Container from "./components/Container/Container";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Loader from "./components/Loader/Loader";
@@ -13,25 +13,33 @@ function App() {
   const [page, setPage] = useState(1);
   // const [loading, setLoading] = useState(false);
 
-  console.log(images);
-
   useEffect(() => {
-    async () => {
-      const fetching = await fetchPhotoCard(query, page);
-      fetching();
-    },
-      [query, page];
-  });
+    const fetchImg = async () => {
+      if (!query.trim()) return;
+
+      try {
+        const res = await fetchPhotoCard(query, page);
+        setImages((prev) => [...prev, ...res.results]);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+    fetchImg();
+  }, [query, page]);
+
+  const handleSearch = (newQuery) => {
+    setQuery(newQuery);
+    setImages([]);
+    setPage(1);
+  };
 
   return (
-    <>
-      <Container>
-        <SearchBar query={query} />
-        <ImageGallery images={images} />
-        {/* {loading && <Loader />} */}
-        {/* <LoadMoreBtn /> */}
-      </Container>
-    </>
+    <Container>
+      <SearchBar query={query} onSubmit={handleSearch} />
+      <ImageGallery images={images} />
+      {/* {loading && <Loader />} */}
+      {/* <LoadMoreBtn onClick={() => setPage(prev => prev + 1)} /> */}
+    </Container>
   );
 }
 
