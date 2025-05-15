@@ -3,8 +3,8 @@ import s from "./ImageGallery.module.css";
 
 const ImageGallery = ({ images }) => {
   return (
-    <div>
-      <ul>
+    <div className={s.gallery}>
+      <ul className={s.galleryList}>
         {images.map((img) => (
           <li key={img.id}>
             <ImageCard data={img} />
