@@ -2,7 +2,7 @@ import s from "./LoadMoreBtn.module.css";
 
 const LoadMoreBtn = () => {
   return (
-    <div>
+    <div className={s.loadMoreBtn}>
       <button className={s.btn} type="button">
         Load more
       </button>

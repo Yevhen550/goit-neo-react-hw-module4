@@ -18,3 +18,9 @@
 .btn:hover {
   scale: 1.02;
 }
+
+.loadMoreBtn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
