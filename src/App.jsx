@@ -11,15 +11,19 @@ function App() {
   const [images, setImages] = useState([]);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [loadMore, setLoadMore] = useState(false)
+  
 
   useEffect(() => {
     const fetchImg = async () => {
       if (!query.trim()) return;
 
       try {
+        setLoading(true);
         const res = await fetchPhotoCard(query, page);
         setImages((prev) => [...prev, ...res.results]);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
@@ -37,7 +41,7 @@ function App() {
     <Container>
       <SearchBar query={query} onSubmit={handleSearch} />
       <ImageGallery images={images} />
-      {/* {loading && <Loader />} */}
+      {loading && <Loader />}
       {/* <LoadMoreBtn onClick={() => setPage(prev => prev + 1)} /> */}
     </Container>
   );
