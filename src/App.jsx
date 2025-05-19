@@ -6,6 +6,9 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Loader from "./components/Loader/Loader";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import SearchBar from "./components/SearchBar/SearchBar";
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = () => toast("Here is your toast.");
 
 function App() {
   const [images, setImages] = useState([]);
@@ -43,6 +46,7 @@ function App() {
 
   return (
     <Container>
+      <Toaster />
       <SearchBar query={query} onSubmit={handleSearch} />
       <ImageGallery images={images} />
       {loading && <Loader />}
